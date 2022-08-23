@@ -1,0 +1,111 @@
+{
+  "users": [
+    {
+      "name": "admin",
+      "email": "admin@gmail.com",
+      "password": "123",
+      "isAdmin": true,
+      "id": 1
+    },
+    {
+      "name": "john",
+      "email": "john@gmail.com",
+      "password": "123",
+      "isAdmin": false,
+      "id": 2
+    },
+    {
+      "id": 3,
+      "name": "Kate",
+      "email": "kate@gmail.com",
+      "password": "123",
+      "isAdmin": false
+    },
+    {
+      "name": "rachel",
+      "email": "rachel@gmail.com",
+      "password": "123",
+      "isAdmin": false,
+      "id": 4
+    },
+    {
+      "name": "harry",
+      "email": "harry@gmail.com",
+      "password": "234",
+      "isAdmin": false,
+      "id": 5
+    }
+  ],
+  "contacts": [
+    {
+      "name": "hello",
+      "mobile": "9999999",
+      "image": "https://images.unsplash.com/photo-1652961989677-a236d38f63f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      "userId": 1,
+      "id": 1
+    },
+    {
+      "name": "hello",
+      "mobile": 8888888888,
+      "image": "https://images.unsplash.com/photo-1652961989677-a236d38f63f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      "userId": 2,
+      "id": 2
+    },
+    {
+      "name": "Ross",
+      "mobile": 8888888888,
+      "image": "https://images.unsplash.com/photo-1652961989677-a236d38f63f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      "userId": 1,
+      "id": 6
+    },
+    {
+      "name": "Rosy",
+      "mobile": "999999999",
+      "image": "https://images.unsplash.com/photo-1652961989677-a236d38f63f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      "userId": 3,
+      "id": 7
+    },
+    {
+      "name": "John",
+      "mobile": 8888888888,
+      "image": "https://images.unsplash.com/photo-1652961989677-a236d38f63f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      "userId": 3,
+      "id": 8
+    },
+    {
+      "name": "johney",
+      "mobile": "777777777",
+      "image": "https://images.unsplash.com/photo-1652961989677-a236d38f63f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      "userId": 3,
+      "id": 9
+    },
+    {
+      "name": "roy",
+      "mobile": "33344445666",
+      "image": "https://images.unsplash.com/photo-1652961989677-a236d38f63f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      "userId": 3,
+      "id": 11
+    },
+    {
+      "name": "Chandler",
+      "mobile": "5544778822",
+      "image": "https://images.unsplash.com/photo-1652961989677-a236d38f63f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      "userId": 3,
+      "id": 12
+    },
+    {
+      "name": "Fat Boy",
+      "mobile": 8888888888,
+      "image": "https://images.unsplash.com/photo-1652961989677-a236d38f63f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      "userId": 5,
+      "id": 16
+    },
+    {
+      "name": "Nick",
+      "mobile": 8888888888,
+      "image": "https://images.unsplash.com/photo-1652961989677-a236d38f63f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      "userId": 5,
+      "id": 17
+    }
+  ]
+}
