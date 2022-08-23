@@ -12,3 +12,8 @@ Run commands one by one :
     npm i -g json-server
     
     npm start
+
+### Used
+    React,
+    Redux,
+    Bootstrap
