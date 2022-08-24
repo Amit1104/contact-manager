@@ -1,14 +1,19 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { handleGetAllData } from '../redux/actions/userActioin'
+import { handleDeleteUser, handleGetAllData } from '../redux/actions/userActioin'
 
 function Dashboard() {
     const dispatch = useDispatch()
-    const { allData: { users }, loading } = useSelector(state => state.user)
-
+    const { allData: { users: allusersdata }, loading, deleteUser } = useSelector(state => state.user)
+    const users = allusersdata.filter(item => item.delete === false)
     useEffect(() => {
         dispatch(handleGetAllData())
-    }, [])
+    }, [deleteUser])
+
+    const delete_User = (id) => {
+        dispatch(handleDeleteUser(id))
+        dispatch(handleGetAllData())
+    }
     return (
         <>
             <div className="container">
@@ -16,12 +21,12 @@ function Dashboard() {
                     <div className="col-sm-12 mt-5">
                         <h3>All Users</h3>
                         {
-                            loading ? <div className="spinner-border text-primary"></div> : <h5>Total Users : {users && users.length}</h5>
+                            loading ? <div className="spinner-border text-primary"></div> : <h5>Total Users : {users && (users.length - users.filter(item => item.isAdmin == true).length)}</h5>
                         }
                         <div className="accordion" id="accordionExample">
                             {
                                 users && users.map((item, i) =>
-                                    <div key={item.name + i}>
+                                    !item.isAdmin && <div key={item.name + i}>
                                         <div className="accordion-item">
                                             <h2 className="accordion-header" id="flush-headingTwo">
                                                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#${item.name + i}`} aria-expanded="false" aria-controls={`${item.name + i}`}>
@@ -33,10 +38,7 @@ function Dashboard() {
                                                     <ul className="list-group">
                                                         <li className="list-group-item">Email : {item.email}</li>
                                                         <li className="list-group-item">Admin : {JSON.stringify(item.isAdmin)}</li>
-                                                        <li className="list-group-item btn-group">
-                                                            <button type="button" className="btn btn-info">Edit</button>
-                                                            <button type="button" className="btn btn-danger">Delete</button>
-                                                        </li>
+                                                        <button type="button" onClick={e => delete_User(item.id)} className="btn btn-danger">Delete</button>
                                                     </ul>
                                                 </div>
                                             </div>

@@ -10,7 +10,7 @@ function Navbar() {
     // console.log(loginUser);
     return (
         <>
-            <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
+            <nav className="navbar navbar-expand-md bg-dark navbar-dark">
                 <div className="container-fluid">
                     <a className="navbar-brand">Contact Manager</a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
@@ -18,8 +18,6 @@ function Navbar() {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div className="navbar-nav">
-
-
                             {!loginUser && <>
                                 <Link className="nav-link" to="/login">login</Link>
                                 <Link className="nav-link" to="/register">register</Link>

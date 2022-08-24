@@ -1,4 +1,4 @@
-import { EDIT_ACCOUNT_FAIL, EDIT_ACCOUNT_REQUEST, EDIT_ACCOUNT_SUCCESS, GET_ALL_DATA_FAIL, GET_ALL_DATA_REQUEST, GET_ALL_DATA_SUCCESS, USER_LOGIN_FAIL, USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGOUT, USER_REGISTER_FAIL, USER_REGISTER_REQUEST, USER_REGISTER_SUCCESS } from "../constants/userConstants";
+import { DELETE_ACCOUNT_FAIL, DELETE_ACCOUNT_REQUEST, DELETE_ACCOUNT_SUCCESS, EDIT_ACCOUNT_FAIL, EDIT_ACCOUNT_REQUEST, EDIT_ACCOUNT_SUCCESS, GET_ALL_DATA_FAIL, GET_ALL_DATA_REQUEST, GET_ALL_DATA_SUCCESS, USER_LOGIN_FAIL, USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGOUT, USER_REGISTER_FAIL, USER_REGISTER_REQUEST, USER_REGISTER_SUCCESS } from "../constants/userConstants";
 
 const userReducer = (state = { allData: { users: [] }, isRegister: false }, { type, payload }) => {
     switch (type) {
@@ -18,7 +18,12 @@ const userReducer = (state = { allData: { users: [] }, isRegister: false }, { ty
         case EDIT_ACCOUNT_SUCCESS: return { ...state, loading: false, accountEdit: true }
         case EDIT_ACCOUNT_FAIL: return { ...state, loading: false, accountEdit: false, error: payload }
 
-        case USER_LOGOUT: return { ...state, loginUser: null, accountEdit: false, isRegister: false }
+        case DELETE_ACCOUNT_REQUEST: return { ...state, deleteUser: false, loading: true }
+        case DELETE_ACCOUNT_SUCCESS: return { ...state, deleteUser: true, loading: false }
+        case DELETE_ACCOUNT_FAIL: return { ...state, deleteUser: false, loading: false, error: payload }
+
+        case USER_LOGOUT: return { ...state, loginUser: null, accountEdit: false, isRegister: false, deleteUser: false }
+
         default: return state
     }
 }

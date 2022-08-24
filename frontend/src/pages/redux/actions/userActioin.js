@@ -1,10 +1,10 @@
-import { EDIT_ACCOUNT_FAIL, EDIT_ACCOUNT_REQUEST, EDIT_ACCOUNT_SUCCESS, GET_ALL_DATA_FAIL, GET_ALL_DATA_REQUEST, GET_ALL_DATA_SUCCESS, USER_LOGIN_FAIL, USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGOUT, USER_REGISTER_FAIL, USER_REGISTER_REQUEST, USER_REGISTER_SUCCESS } from "../constants/userConstants"
+import { DELETE_ACCOUNT_FAIL, DELETE_ACCOUNT_REQUEST, DELETE_ACCOUNT_SUCCESS, EDIT_ACCOUNT_FAIL, EDIT_ACCOUNT_REQUEST, EDIT_ACCOUNT_SUCCESS, GET_ALL_DATA_FAIL, GET_ALL_DATA_REQUEST, GET_ALL_DATA_SUCCESS, USER_LOGIN_FAIL, USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGOUT, USER_REGISTER_FAIL, USER_REGISTER_REQUEST, USER_REGISTER_SUCCESS } from "../constants/userConstants"
 import axios from "axios";
 
 export const handleRegisterAction = userData => async (dispatch) => {
     try {
         dispatch({ type: USER_REGISTER_REQUEST })
-        const { data } = await axios.post("/users", userData)
+        await axios.post("/users", userData)
         dispatch({ type: USER_REGISTER_SUCCESS })
     } catch (error) {
         dispatch({ type: USER_REGISTER_FAIL, payload: error })
@@ -60,7 +60,7 @@ export const handleEditAccount = (ac_details) => async (dispatch) => {
                 delete ac_details.cnpassword
                 delete ac_details.npassword
                 console.log(ac_details);
-                const { data } = await axios.put(`/users/${ac_details.id}`, ac_details)
+                await axios.put(`/users/${ac_details.id}`, ac_details)
                 dispatch({ type: EDIT_ACCOUNT_SUCCESS })
             }
             else {
@@ -72,5 +72,18 @@ export const handleEditAccount = (ac_details) => async (dispatch) => {
         }
     } catch (error) {
         dispatch({ type: EDIT_ACCOUNT_FAIL, payload: error.message })
+    }
+}
+
+export const handleDeleteUser = (id) => async dispatch => {
+    try {
+        dispatch({ type: DELETE_ACCOUNT_REQUEST })
+        const { data: olduser } = await axios.get(`/users/${id}`)
+        olduser.delete = true
+        const { data } = await axios.put(`/users/${id}`, olduser)
+        console.log(id)
+        dispatch({ type: DELETE_ACCOUNT_SUCCESS, payload: data })
+    } catch (error) {
+        dispatch({ type: DELETE_ACCOUNT_FAIL, payload: error.message })
     }
 }
